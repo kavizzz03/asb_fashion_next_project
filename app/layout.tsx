@@ -17,7 +17,7 @@ const inter = Inter({
   weight: ["400", "500", "600", "700"],
 });
 
-const SITE_URL = "https://asbfashion.com";
+const SITE_URL = "https://www.asbfashion.com";
 
 export const viewport: Viewport = {
   themeColor: "#800020", // ASB Crimson identity color

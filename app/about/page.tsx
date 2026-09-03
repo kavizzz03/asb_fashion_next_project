@@ -156,8 +156,10 @@ const FALLBACK_CSR_ACTIVITIES = [
   },
 ];
 
+type CsrActivity = (typeof FALLBACK_CSR_ACTIVITIES)[number];
+
 export default function AboutPage() {
-  const [projects, setProjects] = useState(FALLBACK_CSR_ACTIVITIES);
+  const [projects, setProjects] = useState<CsrActivity[]>(FALLBACK_CSR_ACTIVITIES);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -169,7 +171,7 @@ export default function AboutPage() {
         if (data && data.success && data.projects && data.projects.length > 0) {
           setProjects(data.projects);
         }
-      } catch (error) {
+      } catch {
         console.warn("CSR API unavailable, rendering default dataset.");
       } finally {
         setLoading(false);
@@ -407,7 +409,7 @@ export default function AboutPage() {
             <div className="text-center py-12 text-clay/60">Loading CSR initiatives...</div>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {projects.map((csr: any) => (
+              {projects.map((csr) => (
                 <div
                   key={csr.id}
                   className="bg-paper border border-ink/10 rounded-sm overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow"

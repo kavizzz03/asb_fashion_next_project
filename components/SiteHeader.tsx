@@ -18,11 +18,6 @@ export default function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Close mobile menu when switching routes
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
-
   // Handle subtle header elevation/blur adjustment on scroll
   useEffect(() => {
     const handleScroll = () => {
@@ -177,6 +172,7 @@ export default function SiteHeader() {
                   <Link
                     key={link.href}
                     href={link.href}
+                    onClick={() => setOpen(false)}
                     className={`flex items-center justify-between py-3 px-4 rounded-xl text-sm font-medium tracking-wide transition-all ${
                       active
                         ? "bg-crimson/10 text-crimson font-semibold"
