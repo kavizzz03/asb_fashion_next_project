@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useRef } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowUpRight, Phone, MapPin, Sparkles, ChevronRight, Compass } from "lucide-react";
+import { motion } from "framer-motion";
+import { Phone, MapPin, Sparkles, ChevronRight, Compass } from "lucide-react";
 import HeroSlider from "@/components/HeroSlider";
 import MarqueeStrip from "@/components/MarqueeStrip";
 import { branches, siteInfo } from "@/lib/branches";
@@ -61,7 +61,7 @@ const fadeInUp = {
     y: 0,
     transition: {
       duration: 0.8,
-      ease: [0.215, 0.61, 0.355, 1],
+      ease: [0.215, 0.61, 0.355, 1] as const,
       delay: i * 0.12,
     },
   }),
@@ -166,14 +166,6 @@ function CollectionsGrid() {
 }
 
 export default function Home() {
-  const targetRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start end", "end start"],
-  });
-
-  const parallaxY = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
-
   return (
     <div className="bg-paper text-ink overflow-x-hidden selection:bg-crimson selection:text-paper">
       <HeroSlider />
@@ -279,7 +271,7 @@ export default function Home() {
       </section>
 
       {/* Collections Preview Section */}
-      <section className="py-24 lg:py-36 bg-ink text-paper relative" ref={targetRef}>
+      <section className="py-24 lg:py-36 bg-ink text-paper relative">
         {/* Subtle Background Glow */}
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-brass/5 rounded-full blur-3xl pointer-events-none" />
 
