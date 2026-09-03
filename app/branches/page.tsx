@@ -170,7 +170,7 @@ export default function BranchesPage() {
                   Customer Assistance
                 </span>
                 <h3 className="font-display text-3xl sm:text-4xl font-medium">
-                  Can't find a store near your location?
+                  Can&apos;t find a store near your location?
                 </h3>
                 <p className="text-paper/70 text-sm max-w-xl leading-relaxed">
                   Our online team is ready to deliver your favorite apparel directly to your doorstep with islandwide shipping and hassle free exchanges.
